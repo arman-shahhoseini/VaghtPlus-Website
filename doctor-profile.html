@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>پروفایل پزشکان | وقت‌پلاس</title>
+    <link href="https://fonts.googleapis.com/css2?family=Vazir&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/doctor-profile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="loading-screen" id="loading-screen">
+        <img src="assets/images/loading.gif" alt="Loading">
+    </div>
+
+    <!-- Navigation Bar -->
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="assets/images/logo.png" alt="VaghtPlus">
+            </div>
+            <button class="menu-btn" id="menu-toggle">منو</button>
+            <ul class="menu" id="menu">
+                <li><a href="#footer">تماس با ما</a></li>
+                <li><a href="#">درباره ما</a></li>
+                <li><a href="#">داشبورد</a></li>
+                <li><a href="apointment.html">نوبت‌</a></li>
+                <li><a href="index.html">خانه</a></li>
+            </ul>
+            <div class="login-signup-btns">
+                <button class="login-btn">ورود</button>
+                <button class="signup-btn">ثبت‌نام</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>پروفایل پزشکان و نظرات</h1>
+            <p>پروفایل پزشکان را مشاهده کنید و نظرات دیگران را بخوانید.</p>
+            <div class="hero-buttons">
+                <button class="btn-primary">مشاهده پزشکان</button>
+                <button class="btn-secondary">تماس با ما</button>
+            </div>
+        </div>
+        <img src="assets/images/header-doctor-profile.png" alt="Doctor Image" class="hero-image">
+    </section>
+
+    <!-- Search Bar -->
+    <section class="search-bar">
+        <input type="text" placeholder="جستجوی پزشک یا تخصص..." class="search-input">
+        <button class="btn-search">جستجو</button>
+    </section>
+
+    <!-- Doctor List -->
+    <section class="doctor-list">
+        <div class="filter-buttons">
+            <button class="btn-filter active">همه</button>
+            <button class="btn-filter">جراحان</button>
+            <button class="btn-filter">قلب‌شناسان</button>
+            <button class="btn-filter">درمانگران</button>
+        </div>
+
+        <!-- Doctor Item -->
+        <div class="doctor-item">
+            <img src="https://tehranortopedy.com/wp-content/uploads/2020/08/Mohammadjavad-Mortazavi-768x950.jpg" alt="Doctor Image">
+            <div class="doctor-details">
+                <h3>دکتر سید محمد جواد مرتضوی</h3>
+                <p>متخصص ارتوپدی</p>
+                <p>امتیاز: 5/5</p>
+            </div>
+            <div class="doctor-stats">
+                <p>نرخ موفقیت: 60%</p>
+                <p>مشاوره‌ها: 300</p>
+            </div>
+        </div>
+        <div class="doctor-item">
+            <img src="https://tehranortopedy.com/wp-content/uploads/2023/10/dr-mohammad-ayati-firoozabadi-1.jpg" alt="Doctor Image">
+            <div class="doctor-details">
+                <h3>دکتر محمد آیتی فیروزآبادی</h3>
+                <p>فوق تخصص جراحی زانو</p>
+                <p>امتیاز: 5/5</p>
+            </div>
+            <div class="doctor-stats">
+                <p>نرخ موفقیت: 50%</p>
+                <p>مشاوره‌ها: 120</p>
+            </div>
+        </div>
+        <div class="doctor-item">
+            <img src="https://tehranortopedy.com/wp-content/uploads/2020/08/Babak-Mirzashahi-768x927.jpeg" alt="Doctor Image">
+            <div class="doctor-details">
+                <h3>دکتر بابک میرزاشاهی</h3>
+                <p>متخصص ارتوپدی فوق تخصص جراحی ستون فقرات</p>
+                <p>امتیاز: 4/5</p>
+            </div>
+            <div class="doctor-stats">
+                <p>نرخ موفقیت: 80%</p>
+                <p>مشاوره‌ها: 75</p>
+            </div>
+        </div>
+
+        <!-- Additional doctor items can be added here -->
+        
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="footer-social">
+            <h3>ما را در شبکه‌های اجتماعی دنبال کنید</h3>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+        </div>
+        <div class="footer-copyright">
+            © 2024 وقت‌پلاس | تمامی حقوق محفوظ است
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/scripts.js"></script>
+</body>
+</html>
