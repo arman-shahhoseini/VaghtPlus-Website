@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نوبت‌دهی آنلاین | وقت‌پلاس</title>
+    <link href="https://fonts.googleapis.com/css2?family=Vazir&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" type="image/png" href="assets/images/logo-icon.png">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loading-screen">
+        <img src="assets/images/loading.gif" alt="Loading">
+    </div>
+
+   <!-- Navigation Bar -->
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="assets/images/logo.png" alt="VaghtPlus">
+            </div>
+            <button class="menu-btn" id="menu-toggle">منو</button>
+            <ul class="menu" id="menu">
+                <li><a href="#footer">تماس با ما</a></li>
+                <li><a href="#">درباره ما</a></li>
+                <li><a href="#">داشبورد</a></li>
+                <li><a href="apointment.html">نوبت‌</a></li>
+                <li><a href="index.html">خانه</a></li>
+            </ul>
+            <div class="login-signup-btns">
+                <button class="login-btn">ورود</button>
+                <button class="signup-btn">ثبت‌نام</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="index.html">خانه</a>
+        <a href="apointment.html">نوبت‌ها</a>
+        <a href="#">داشبورد</a>
+        <a href="#">درباره ما</a>
+        <a href="#">ورود</a>
+        <a href="#">ثبت‌نام</a>
+    </div>
+
+    <!-- Appointment Section -->
+    <section class="appointment-section">
+        <div class="appointment-header">
+            <h1>نوبت‌دهی آنلاین</h1>
+            <p>برای تعیین نوبت خود، فرم زیر را پر کنید.</p>
+        </div>
+        <div class="appointment-form">
+            <form>
+                <div class="form-group">
+                    <label for="date">تاریخ نوبت:</label>
+                    <input type="date" id="date" class="input-field" required>
+                </div>
+                <div class="form-group">
+                    <label for="time">زمان نوبت:</label>
+                    <input type="time" id="time" class="input-field" required>
+                </div>
+                <div class="form-group">
+                    <label for="doctor">پزشک:</label>
+                    <select id="doctor" class="input-field" required>
+                        <option value="">انتخاب پزشک</option>
+                        <option value="doctor1">پزشک 1</option>
+                        <option value="doctor2">پزشک 2</option>
+                        <!-- Add more options as needed -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="name">نام:</label>
+                    <input type="text" id="name" class="input-field" placeholder="نام خود را وارد کنید" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">تلفن:</label>
+                    <input type="tel" id="phone" class="input-field" placeholder="تلفن خود را وارد کنید" required>
+                </div>
+                <button type="submit" class="btn-submit">ثبت نوبت</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer">
+            <div class="footer-social">
+                <h3>ما را در شبکه‌های اجتماعی دنبال کنید</h3>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            © 2024 وقت‌پلاس | تمامی حقوق محفوظ است
+        </div>
+    </footer>
+
+    <script src="assets/scripts.js"></script>
+</body>
+</html>
