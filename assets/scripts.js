@@ -32,3 +32,15 @@ window.addEventListener('beforeunload', function() {
     var loadingScreen = document.getElementById("loading-screen");
     loadingScreen.style.display = "flex";
 });
+
+
+document.querySelector('.btn-confirm').addEventListener('click', function (e) {
+    e.preventDefault();
+    alert('Appointment confirmed!');
+});
+document.addEventListener('DOMContentLoaded', function () {
+    $('#date').persianDatepicker({
+        format: 'YYYY/MM/DD',
+        autoClose: true
+    });
+});
