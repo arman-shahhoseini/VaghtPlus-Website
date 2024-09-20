@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>داشبورد کاربری | وقت‌پلاس</title>
+    <link href="https://fonts.googleapis.com/css2?family=Vazir&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" type="image/png" href="assets/images/logo-icon.png">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Vazir', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f9f9f9;
+        }
+        /* Dashboard Layout */
+        .dashboard {
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .sidebar {
+            background-color: #2c3e50;
+            width: 250px;
+            height: 100%;
+            padding: 20px;
+            color: white;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            transition: width 0.3s;
+        }
+        .sidebar.collapsed {
+            width: 60px;
+        }
+        .sidebar h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1.5em;
+        }
+        .sidebar a {
+            display: flex;
+            align-items: center;
+            color: white;
+            padding: 10px;
+            text-decoration: none;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        .sidebar a:hover {
+            background-color: #575757;
+        }
+        .sidebar i {
+            margin-left: 10px;
+        }
+        .main-content {
+            flex-grow: 1;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #ffffff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+            color: #2a3d45;
+        }
+        .header i {
+            margin-left: 15px;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        .header i:hover {
+            color: #009a80;
+        }
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s; 
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        .card h3 {
+            margin-top: 0;
+            color: #333; 
+        }
+        footer {
+           text-align: center; 
+           padding: 15px; 
+           background-color: #3c3d37; 
+           color: white; 
+           position: relative; 
+           bottom: 0; 
+           width: 100%; 
+           margin-top: 20px; 
+           border-top: 3px solid #009a80; 
+        }
+       /* Modal Styles */
+       .modal {
+           display: none; 
+           position: fixed; 
+           z-index: 100; 
+           left: 0; 
+           top: 0; 
+           width: 100%; 
+           height: 100%; 
+           overflow: auto; 
+           background-color: rgba(0, 0, 0, 0.4); 
+       }
+       .modal-content {
+           background-color: white; 
+           margin: 15% auto; 
+           padding: 20px; 
+           border: 1px solid #888; 
+           width: 80%; 
+           border-radius: 8px; 
+       }
+       /* Responsive Design */
+        @media (max-width: 768px) {
+          .sidebar {
+              width: 200px;
+          } 
+          .sidebar.collapsed {
+              width: 60px;
+          }
+          .header {
+              flex-direction: column; 
+              align-items: flex-start;
+          }
+          .cards {
+              grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+          }
+          .card {
+              padding: 15px;
+          }
+          footer {
+              font-size: 0.8em;
+          }
+      }
+   </style>
+</head>
+<body>
+    
+   <div class="dashboard">
+       <aside class="sidebar" id="sidebar">
+           <h2>داشبورد</h2>
+           <a href="profile.html"><i class="fas fa-user"></i> پروفایل من</a>
+           <a href="my-appointments.html"><i class="fas fa-calendar-alt"></i> نوبت‌های من</a>
+           <a href="history.html"><i class="fas fa-history"></i> تاریخچه</a>
+           <a href="settings.html"><i class="fas fa-cog"></i> تنظیمات</a>
+           <a href="index.html" id="logout"><i class="fas fa-sign-out-alt"></i> خروج</a>
+       </aside>
+
+       <main class="main-content">
+           <div class="header">
+               <h1>خوش آمدید، [نام کاربر]</h1>
+               <div>
+                   <i class="fas fa-bell" id="notification-icon"></i>
+                   <i class="fas fa-user-circle" id="profile-icon"></i>
+                   <i class="fas fa-bars" id="toggle-sidebar"></i>
+               </div>
+           </div>
+
+           <div class="cards">
+               <div class="card">
+                   <h3>نوبت‌های جدید</h3>
+                   <p>شما ۲ نوبت جدید دارید</p>
+               </div>
+               <div class="card">
+                   <h3>پروفایل پزشکی</h3>
+                   <p>جزئیات پزشکان را مشاهده کنید</p>
+               </div>
+               <div class="card">
+                   <h3>تاریخچه نوبت‌ها</h3>
+                   <p>تمام نوبت‌های قبلی خود را ببینید</p>
+               </div>
+               <div class="card">
+                   <h3>تنظیمات حساب کاربری</h3>
+                   <p>تنظیمات خود را به‌روز کنید</p>
+               </div>
+               <button id="openModal">مشاهده جزئیات بیشتر</button>
+
+               <!-- Modal -->
+               <div id="myModal" class="modal">
+                   <div class="modal-content">
+                       <span id="closeModal" style="float:right; cursor: pointer;">&times;</span>
+                       <h2>جزئیات بیشتر</h2>
+                       <p>اینجا می‌توانید جزئیات بیشتری مشاهده کنید.</p>
+                   </div>
+               </div>
+           </div>
+       </main>
+   </div>
+
+   <footer>
+       ©2024 وقت‌پلاس | تمامی حقوق محفوظ است
+   </footer>
+
+   <script src="assets/scripts.js"></script>
+
+   <script>
+    // Retrieve user's name from localStorage
+    const userName = localStorage.getItem('userName') || 'کاربر';
+
+    // Update the header with the user's name
+    document.querySelector('h1').textContent = `خوش آمدید، ${userName}`;
+
+    // Rest of your existing JavaScript code...
+    // Toggle sidebar
+    document.getElementById('toggle-sidebar').addEventListener('click', function() {
+        const sidebar = document.getElementById('sidebar');
+        sidebar.classList.toggle('collapsed');
+    });
+
+    // Open modal
+    document.getElementById('openModal').addEventListener('click', function() {
+        document.getElementById('myModal').style.display = "block";
+    });
+
+    // Close modal
+    document.getElementById('closeModal').addEventListener('click', function() {
+        document.getElementById('myModal').style.display = "none";
+    });
+
+    // Close modal when clicking outside of it
+    window.onclick = function(event) {
+        const modal = document.getElementById('myModal');
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    };
+
+    // Logout action
+    document.getElementById('logout').addEventListener('click', function() {
+        alert("شما از سیستم خارج شدید!");
+        localStorage.removeItem('userName'); // Clear name on logout
+        // Implement logout logic here
+    });
+</script>
+
+ 
+</body>
+</html>

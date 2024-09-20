@@ -9,6 +9,7 @@
     <link rel="icon" type="image/png" href="assets/images/logo-icon.png">
 </head>
 <body>
+    
     <!-- Login Section -->
     <div class="container login-container">
         <button class="back-button" onclick="window.history.back();">بازگشت</button>
@@ -44,6 +45,23 @@
             <a href="register.html">ثبت‌نام</a>
         </div>
     </div>
+    <script>
+        document.querySelector('.login-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
 
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            // Here you would typically make an AJAX call to check the login credentials
+            // For demonstration, we will assume the login is successful
+            if (email && password) { // Add your validation logic here
+                // Redirect to the dashboard
+                window.location.href = 'dashboard.html'; 
+            } else {
+                alert('لطفاً اطلاعات معتبر وارد کنید');
+            }
+        });
+
+    </script>
 </body>
 </html>

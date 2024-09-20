@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نوبت‌های من | وقت‌پلاس</title>
+    <link href="https://fonts.googleapis.com/css2?family=Vazir&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" type="image/png" href="assets/images/logo-icon.png">
+    <style>
+        /* Include the same styles as in the dashboard */
+        body {
+            font-family: 'Vazir', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f9f9f9;
+        }
+        /* Dashboard Layout */
+        .dashboard {
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .sidebar {
+            background-color: #2c3e50;
+            width: 250px;
+            height: 100%;
+            padding: 20px;
+            color: white;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            transition: width 0.3s;
+        }
+        .sidebar.collapsed {
+            width: 60px;
+        }
+        .sidebar h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1.5em;
+        }
+        .sidebar a {
+            display: flex;
+            align-items: center;
+            color: white;
+            padding: 10px;
+            text-decoration: none;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        .sidebar a:hover {
+            background-color: #575757;
+        }
+        .sidebar i {
+            margin-left: 10px;
+        }
+        .main-content {
+            flex-grow: 1;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #ffffff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+            color: #2a3d45;
+        }
+        .header i {
+            margin-left: 15px;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        .header i:hover {
+            color: #009a80;
+        }
+        /* Appointment List Styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table th, table td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: right;
+        }
+        table th {
+            background-color: #009a80;
+            color: white;
+        }
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: #3c3d37;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            margin-top: 20px;
+            border-top: 3px solid #009a80;
+        }
+    </style>
+</head>
+<body>
+    
+   <div class="dashboard">
+       <aside class="sidebar" id="sidebar">
+           <h2>داشبورد</h2>
+           <a href="profile.html"><i class="fas fa-user"></i> پروفایل من</a>
+           <a href="my-appointments.html"><i class="fas fa-calendar-alt"></i> نوبت‌های من</a>
+           <a href="history.html"><i class="fas fa-history"></i> تاریخچه</a>
+           <a href="settings.html"><i class="fas fa-cog"></i> تنظیمات</a>
+           <a href="index.html" id="logout"><i class="fas fa-sign-out-alt"></i> خروج</a>
+       </aside>
+
+       <main class="main-content">
+           <div class="header">
+               <h1>نوبت‌های من</h1>
+           </div>
+           <table>
+               <thead>
+                   <tr>
+                       <th>تاریخ</th>
+                       <th>زمان</th>
+                       <th>پزشک</th>
+                       <th>وضعیت</th>
+                   </tr>
+               </thead>
+               <tbody>
+                   <tr>
+                       <td>1403/07/01</td>
+                       <td>10:00</td>
+                       <td>دکتر علی زاده</td>
+                       <td>تایید شده</td>
+                   </tr>
+                   <tr>
+                       <td>1403/07/02</td>
+                       <td>11:30</td>
+                       <td>دکتر مریم حسینی</td>
+                       <td>در حال انتظار</td>
+                   </tr>
+               </tbody>
+           </table>
+       </main>
+   </div>
+
+   <footer>
+       ©2024 وقت‌پلاس | تمامی حقوق محفوظ است
+   </footer>
+
+   <script src="assets/scripts.js"></script>
+
+   <script>
+          // Toggle sidebar
+          document.getElementById('toggle-sidebar').addEventListener('click', function() {
+          const sidebar = document.getElementById('sidebar');
+          sidebar.classList.toggle('collapsed');
+       });
+
+       // Open modal
+       document.getElementById('openModal').addEventListener('click', function() {
+          document.getElementById('myModal').style.display = "block";
+       });
+
+       // Close modal
+       document.getElementById('closeModal').addEventListener('click', function() {
+          document.getElementById('myModal').style.display = "none";
+       });
+
+       // Close modal when clicking outside of it
+       window.onclick = function(event) {
+          const modal = document.getElementById('myModal');
+          if (event.target == modal) {
+              modal.style.display = "none";
+          }
+      };
+       // Logout action
+       document.getElementById('logout').addEventListener('click', function() {
+          alert("شما از سیستم خارج شدید!");
+          // Implement logout logic here
+       });
+   </script>
+</body>
+</html>

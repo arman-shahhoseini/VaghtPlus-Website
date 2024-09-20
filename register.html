@@ -9,6 +9,7 @@
     <link rel="icon" type="image/png" href="assets/images/logo-icon.png">
 </head>
 <body>
+    
      <!-- Registration Section -->
      <div class="container registration-container">
         <button class="back-button" onclick="window.history.back();">بازگشت</button>
@@ -45,5 +46,25 @@
             <a href="login.html">ورود</a>
         </div>
     </div>
+    <script>
+        document.querySelector('.form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+    
+            const fullname = document.getElementById('fullname').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+    
+            // Here you would typically make an AJAX call to register the user
+            // For demonstration, we will assume the registration is successful
+            if (fullname && email && password) { // Add your validation logic here
+                // Store the user's name in localStorage
+                localStorage.setItem('userName', fullname);
+                // Redirect to the dashboard
+                window.location.href = 'dashboard.html'; 
+            } else {
+                alert('لطفاً اطلاعات معتبر وارد کنید');
+            }
+        });
+    </script>    
 </body>
 </html>

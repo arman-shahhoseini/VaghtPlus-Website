@@ -44,3 +44,9 @@ document.addEventListener('DOMContentLoaded', function () {
         autoClose: true
     });
 });
+
+// Add your JavaScript functionality here
+document.getElementById('sidebarToggle').addEventListener('click', function() {
+    const sidebar = document.getElementById('sidebar');
+    sidebar.classList.toggle('collapsed');
+});
